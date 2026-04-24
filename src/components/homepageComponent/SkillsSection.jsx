@@ -12,7 +12,7 @@ const SkillsSection = () => {
   return (
     <div className="max-w-9/12 mx-auto">
       <p className="font-semibold text-[#494b90]">02</p>
-      <p className='text-xl font-bold mb-2'>My Skills</p>
+      <p className="text-xl font-bold mb-2">My Skills</p>
       <div className="grid grid-cols-4 gap-3">
         <div className="flex flex-col justify-center items-center rounded-md p-2 bg-[#161c2a]">
           <img src={HTMLpic} className="w-[100px]" alt="HTML5" />
@@ -36,13 +36,14 @@ const SkillsSection = () => {
         </div>
         <div className="flex flex-col justify-center items-center rounded-md p-2 bg-[#161c2a]">
           <FaGithub size={70} />
-          <p className='mt-2'>Git & Github</p>
+          <p className="mt-2">Git & Github</p>
         </div>
         <div className="flex flex-col justify-center items-center rounded-md p-2 bg-[#161c2a]">
           <img src={Figmaimg} className="w-[80px]" alt="Figma" />
-          <p className='mt-1.5'>Figma</p>
+          <p className="mt-1.5">Figma</p>
         </div>
       </div>
+      <div className="divider max-w-full mx-auto"></div>
     </div>
   );
 };
