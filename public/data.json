@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Portfolio Website",
+    "description": "A personal portfolio website to showcase my skills, projects and contact information.",
+    "img": "/images/projects/portfolio.png",
+    "technologies": ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
+    "live_link": "https://your-portfolio.vercel.app",
+    "host_server_img": "/images/servers/vercel.png"
+  },
+  {
+    "id": 2,
+    "name": "E-commerce Website",
+    "description": "A full-featured e-commerce site with product listing, cart system and payment integration.",
+    "img": "/images/projects/ecommerce.png",
+    "technologies": ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+    "live_link": "https://your-ecommerce.vercel.app",
+    "host_server_img": "/images/servers/netlify.png"
+  },
+  {
+    "id": 3,
+    "name": "Blog Website",
+    "description": "A responsive blog platform where users can read and write articles.",
+    "img": "/images/projects/blog.png",
+    "technologies": ["Next.js", "Firebase", "Tailwind CSS"],
+    "live_link": "https://your-blog.vercel.app",
+    "host_server_img": "/images/servers/vercel.png"
+  },
+  {
+    "id": 4,
+    "name": "Task Manager App",
+    "description": "A task management app with add, delete, update and mark complete features.",
+    "img": "/images/projects/task.png",
+    "technologies": ["React", "LocalStorage", "CSS"],
+    "live_link": "https://your-task-app.netlify.app",
+    "host_server_img": "/images/servers/netlify.png"
+  }
+]
