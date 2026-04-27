@@ -1,84 +1,67 @@
-import React from 'react';
-// import { NavLink } from 'react-router';
+import React, { useState } from 'react';
 import MyNavLinks from './MyNavLinks';
 import { AiOutlineDownload } from 'react-icons/ai';
+import { HiOutlineMenu, HiX } from 'react-icons/hi';
 
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
+
   const navItems = [
-    {
-      path: '/',
-      text: 'Home',
-    },
-    {
-      path: '/about',
-      text: 'About',
-    },
-    {
-      path: '/skills',
-      text: 'Skills',
-    },
-    {
-      path: '/projects',
-      text: 'Projects',
-    },
-    {
-      path: '/contact',
-      text: 'Contact',
-    },
+    { path: '/', text: 'Home' },
+    { path: '/about', text: 'About' },
+    { path: '/skills', text: 'Skills' },
+    { path: '/projects', text: 'Projects' },
+    { path: '/contact', text: 'Contact' },
   ];
 
   return (
     <nav className="bg-transparent shadow py-4">
-      <div className="flex justify-between gap-4 items-center max-w-9/12 mx-auto">
-        <div className="navbar-start">
-          <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor">
-                {' '}
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />{' '}
-              </svg>
-            </div>
-            <ul
-              tabIndex="-1"
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-              {navItems.map((item, ind) => (
-                <MyNavLinks key={ind} to={item.path}>
-                  {item.text}
-                </MyNavLinks>
-              ))}
-            </ul>
-          </div>
-          <h1 className="text-2xl font-bold">
-            <sapn className="bg-linear-to-r from-[#3599e8] to-[#475ae8] bg-clip-text text-transparent">
-              Rifad Hossain
-            </sapn>
-          </h1>
-        </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="flex justify-between gap-4 items-center">
-            {navItems.map((item, ind) => (
-              <MyNavLinks key={ind} to={item.path}>
-                {item.text}
-              </MyNavLinks>
-            ))}
-          </ul>
-        </div>
-        <div className="navbar-end">
-          <a className="btn bg-transparent rounded-md border-2 border-[#363a5a]">
-            <AiOutlineDownload /> Download CV
+      <div className="max-w-9/12 mx-auto flex justify-between items-center">
+        {/* Logo */}
+        <h1 className="text-2xl font-bold">
+          <span className="bg-gradient-to-r from-[#3599e8] to-[#475ae8] bg-clip-text text-transparent">
+            Rifad Hossain
+          </span>
+        </h1>
+
+        {/* Desktop Menu */}
+        <ul className="hidden lg:flex gap-6 items-center">
+          {navItems.map((item, ind) => (
+            <MyNavLinks key={ind} to={item.path}>
+              {item.text}
+            </MyNavLinks>
+          ))}
+        </ul>
+
+        {/* Right Button */}
+        <div className="hidden lg:block">
+          <a className="flex items-center gap-2 px-4 py-2 rounded-md border border-[#363a5a] hover:bg-[#1c2238] transition">
+            <AiOutlineDownload />
+            Download CV
           </a>
         </div>
+
+        {/* Mobile Button */}
+        <button onClick={() => setOpen(!open)} className="lg:hidden text-2xl">
+          {open ? <HiX /> : <HiOutlineMenu />}
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {open && (
+        <div className="lg:hidden mt-4 px-6 pb-4 space-y-3">
+          {navItems.map((item, ind) => (
+            <div key={ind} onClick={() => setOpen(false)}>
+              <MyNavLinks to={item.path}>{item.text}</MyNavLinks>
+            </div>
+          ))}
+
+          <a className="flex items-center gap-2 px-4 py-2 rounded-md border border-[#363a5a] w-fit">
+            <AiOutlineDownload />
+            Download CV
+          </a>
+        </div>
+      )}
     </nav>
   );
 };

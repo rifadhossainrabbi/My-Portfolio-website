@@ -4,37 +4,77 @@ import { HashLoader } from 'react-spinners';
 
 const Projects = () => {
   const { projects, loading } = useProjects();
-  console.log(projects, 'Projects', loading, 'Loadign');
 
   if (loading) {
     return (
       <div className="flex justify-center items-center mt-10">
-        <HashLoader color="blue" />
+        <HashLoader color="#4a8bb9" />
       </div>
     );
   }
+
   return (
-    <div className="max-w-9/12 mx-auto">
+    <div className="max-w-9/12 mx-auto py-10">
+      {/* Section Title */}
       <p className="font-semibold text-[#494b90]">03</p>
-      <p className="text-xl font-bold mb-2">My Projects</p>
-      <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+      <h2 className="text-2xl font-bold mb-6">My Projects</h2>
+
+      {/* Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {projects.map((project) => (
-          <div key={project.id} className="bg-[#151b29]">
-            <figure>
+          <div
+            key={project.id}
+            className="group bg-[#151b29] rounded-xl overflow-hidden border border-white/5 hover:border-blue-500/30 transition duration-300 hover:-translate-y-1">
+            {/* Image */}
+            <div className="relative overflow-hidden">
               <img
                 src={project.img}
                 alt={project.name}
-                className="w-full h-[200px] object-coverl"
+                className="w-full h-44 object-cover transition-transform duration-500 group-hover:scale-110"
               />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Card Title</h2>
-              <p>
-                A card component has a figure, a body part, and inside body
-                there are title and actions parts
+
+              {/* soft overlay */}
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition"></div>
+            </div>
+
+            {/* Content */}
+            <div className="p-4 space-y-3">
+              {/* Title */}
+              <h2 className="text-white text-lg font-semibold group-hover:text-blue-400 transition">
+                {project.name}
+              </h2>
+
+              {/* Description */}
+              <p className="text-gray-400 text-sm line-clamp-2">
+                {project.description}
               </p>
-              <div className="card-actions justify-end">
-                <button className="btn btn-primary">Buy Now</button>
+
+              {/* Technologies */}
+              <div className="flex flex-wrap gap-2">
+                {project.technologies.map((tech, ind) => (
+                  <div
+                    key={ind}
+                    className="px-2 py-[2px] rounded-full border border-white/10 bg-white/5">
+                    <span className="text-xs text-gray-300">{tech}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Footer */}
+              <div className="flex justify-between items-center pt-2">
+                <a
+                  href={project.live_link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-blue-400 hover:text-blue-300 transition font-medium">
+                  Live Demo →
+                </a>
+
+                <img
+                  src={project.icon_image}
+                  alt="icon"
+                  className="w-6 h-6 rounded-full object-cover border border-white/10"
+                />
               </div>
             </div>
           </div>
