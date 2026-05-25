@@ -2,7 +2,6 @@ import React from 'react';
 import HeroImage from '../../assets/image-portfolio-removebg-preview.png';
 import { IoArrowForwardOutline, IoLogoGithub } from 'react-icons/io5';
 import { FaFacebook, FaLinkedin } from 'react-icons/fa';
-// ১. নিচের ইমপোর্টটি যোগ করা হয়েছে
 import Typewriter from 'typewriter-effect';
 
 const HeroSection = () => {
@@ -30,7 +29,7 @@ const HeroSection = () => {
             Rifad Hossain
           </h1>
 
-          {/* ২. এলাইনমেন্ট ঠিক করতে flex এবং gap যোগ করা হয়েছে */}
+
           <h2 className="text-xl sm:text-2xl lg:text-3xl text-gray-300 flex flex-wrap justify-center lg:justify-start gap-x-2">
             <span>Aspiring</span>
             <span className="bg-gradient-to-r from-[#3599e8] to-[#475ae8] bg-clip-text text-transparent font-bold">
